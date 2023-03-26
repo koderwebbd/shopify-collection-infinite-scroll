@@ -1,0 +1,19 @@
+<div class="page-load-status">
+  <p class="infinite-scroll-request">Loading...</p>
+  <p class="infinite-scroll-last">No more product to load!</p>
+  <p class="infinite-scroll-error">No more pages to load</p>
+</div>
+{%  assign container_selector = section.settings.container_selector | default: ".product-grid" %}
+{%  assign path = section.settings.path | default: ".pagination a[href]" %}
+{%  assign append = section.settings.append | default: ".product-grid" %}
+{%  assign hide_nav = section.settings.hide_nav | default: ".pagination"  %}
+{%  assign status = section.settings.status | default: ".page-load-status" %}
+<script>
+  var isSettings = '{ "container" : "{{container_selector}}", "path" : "{{path}}", "append" : "{{append}}", "hideNav" : "{{hide_nav}}", "status" : "{{status}}" }';
+</script>
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js" defer></script>
+<script src="{{ 'infinite-scroll.js' | asset_url }}" defer="defer"></script>
+<style>/*https://originateweb.com/infinite-scroll-to-my-collection-pages-shopify/*/
+  .page-load-status{display:none;text-align:center;margin:30px auto 10px;padding:5px;max-width:300px;background:#eee;clear: both;}
+  .page-load-status p{margin:0;padding:5px;}
+</style>
